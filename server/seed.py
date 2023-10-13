@@ -14,7 +14,7 @@ fake.add_provider(lorem)
 genres = ["Action", "Comedy", "Drama", "Horror", "Romance", "Thriller", "Science Fiction",
           "Fantasy", "Mystery", "Adventure", "Crime", "Family", "Animation", "Documentary", "War"]
 
-roles = ["Performer", "Director", "Producor", "Playwright",
+roles = ["Performer", "Director", "Producer", "Playwright",
          "Lighting Design", "Sound Design", "Set Design"]
 
 
