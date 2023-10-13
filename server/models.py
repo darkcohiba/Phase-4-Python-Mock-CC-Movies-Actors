@@ -16,11 +16,27 @@ metadata = MetaData(naming_convention=convention)
 
 db = SQLAlchemy(metadata=metadata)
 
+
 class Movie(db.Model, SerializerMixin):
-    __tablename__='movie_table'
+    __tablename__ = 'movie_table'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    genre = db.Column(db.String)
+    image = db.Column(db.String)
+    description = db.Column(db.String)
+    rating = db.Column(db.Integer)
+
+
+
+
 
 class Actor(db.Model, SerializerMixin):
-    __tablename__='actor_table'
+    __tablename__ = 'actor_table'
+
+    id = db.Column(db.Integer, primary_key=True)
+
+
 
 class Credit(db.Model, SerializerMixin):
-    __tablename__='credit_table'
+    __tablename__ = 'credit_table'
