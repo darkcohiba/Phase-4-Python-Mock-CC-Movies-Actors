@@ -6,7 +6,6 @@ from faker.providers import lorem
 from app import app
 from models import db, Movie, Actor, Credit
 
-
 fake = Faker()
 fake.add_provider(lorem)
 
@@ -56,7 +55,6 @@ def create_credits(actors, movies):
 
 
 if __name__ == '__main__':
-
     with app.app_context():
 
         print("Clearing db...")
