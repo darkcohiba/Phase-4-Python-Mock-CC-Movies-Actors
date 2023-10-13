@@ -32,7 +32,7 @@ class Movie(db.Model, SerializerMixin):
 
     @validates('rating')
     def validate_rating(self, key, rating):
-        if 0 < rating < 11:
+        if 0 < rating < 11 and isinstance(rating, int):
             return rating
         else:
             raise ValueError("Rating must be between 1 and 10")
@@ -61,7 +61,7 @@ class Actor(db.Model, SerializerMixin):
 
     @validates('age')
     def validate_age(self, key, age):
-        if age < 11:
+        if age < 11 and isinstance(age, int):
             raise ValueError("Must be older than 10.")
         return age
 
@@ -92,3 +92,5 @@ class Credit(db.Model, SerializerMixin):
         if role not in roles:
             raise ValueError(f"Role must be a qualifed role: {roles_str}")
         return role
+
+    serialize_rules=('-related_actor.actor_credits', '-related_movie.movie_credits')
