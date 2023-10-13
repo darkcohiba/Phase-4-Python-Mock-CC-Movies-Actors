@@ -47,7 +47,7 @@ def create_credits(actors, movies):
     credits = []
     for _ in range(20):
         c = Credit(
-            rent=randint(2000, 5000),
+            role=rc(roles),
             movie_id=rc(movies).id,
             actor_id=rc(actors).id
         )

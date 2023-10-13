@@ -35,8 +35,15 @@ class Actor(db.Model, SerializerMixin):
     __tablename__ = 'actor_table'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    age = db.Column(db.Integer)
+
+
 
 
 
 class Credit(db.Model, SerializerMixin):
     __tablename__ = 'credit_table'
+
+    id = db.Column(db.Integer, primary_key=True)
+    age = db.Column(db.Integer)
