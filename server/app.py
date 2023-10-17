@@ -50,10 +50,10 @@ api.add_resource(ActorResource, '/actor')
 class ActorsByIdResource(Resource):
 
     def get_actor(self, actor_id):
-        actor = Actor.query.get(actor_id)
-        if not actor:
+        if actor := Actor.query.get(actor_id):
+            return actor, None, None
+        else:
             return None, {"message": "Actor not found"}, 404
-        return actor, None, None
     
     def get(self, actor_id):
         actor, err, status = self.get_actor(actor_id)
