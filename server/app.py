@@ -49,11 +49,19 @@ api.add_resource(ActorResource, '/actor')
 
 class ActorsByIdResource(Resource):
 
+    def get_actor(self, actor_id):
+        actor = Actor.query.get(actor_id)
+        if not actor:
+            return None, {"message": "Actor not found"}, 404
+        return actor, None, None
+    
     def get(self, actor_id):
-        if actor := Actor.query.get(actor_id):
-            return actor.to_dict(), 200
-        else:
-            return {"message": "Actor not found"}, 404
+        actor, err, status = self.get_actor(actor_id)
+        return (err, status) if err else (actor.to_dict(), 200)
+        # if actor := Actor.query.get(actor_id):
+        #     return actor.to_dict(), 200
+        # else:
+        #     return {"message": "Actor not found"}, 404
 
     def patch(self, actor_id):
         actor = Actor.query.get(actor_id)
