@@ -16,7 +16,6 @@ metadata = MetaData(naming_convention=convention)
 
 db = SQLAlchemy(metadata=metadata)
 
-
 class Movie(db.Model, SerializerMixin):
     __tablename__ = 'movie_table'
 
@@ -26,6 +25,7 @@ class Movie(db.Model, SerializerMixin):
     image = db.Column(db.String)
     description = db.Column(db.String)
     rating = db.Column(db.Integer)
+
 
     # relationship to credits
     movie_credits = db.relationship('Credit', back_populates='related_movie', cascade="all, delete-orphan")

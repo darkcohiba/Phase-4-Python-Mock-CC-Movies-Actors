@@ -86,6 +86,7 @@ class ActorsByIdResource(Resource):
 
         return actor.to_dict(), 202
 
+
     def delete(self, actor_id):
         actor = Actor.query.get(actor_id)
         if not actor:
